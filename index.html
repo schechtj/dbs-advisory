@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DBS Advisory LLC | Philanthropy & Nonprofit Strategy</title>
+  <meta name="description" content="DBS Advisory LLC provides strategic and operational consulting for nonprofit organizations and philanthropic institutions. Led by Diana Benton Schechter." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark:    #2f5743;
+      --green-mid:     #4a7c62;
+      --green-light:   #c8ddd2;
+      --green-pale:    #eef4f0;
+      --green-paler:   #f5f9f6;
+      --white:         #ffffff;
+      --ink:           #1c2820;
+      --ink-soft:      #4b5b52;
+      --ink-lighter:   #7a8c81;
+      --border:        #d4e3da;
+      --serif:         'Cormorant Garamond', Georgia, serif;
+      --sans:          'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 1.25rem;
+      color: var(--green-dark);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      font-weight: 300;
+      color: var(--ink-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--green-dark); }
+
+    .nav-cta {
+      background: var(--green-dark);
+      color: var(--white) !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 2px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--green-mid) !important; color: var(--white) !important; }
+
+    /* hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--green-dark);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--green-paler);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-shape {
+      position: absolute;
+      right: -5%;
+      top: -10%;
+      width: 55%;
+      height: 120%;
+      background: var(--green-pale);
+      border-radius: 0 0 0 60%;
+      z-index: 0;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 8rem 2rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 2rem;
+      height: 2px;
+      background: var(--green-mid);
+    }
+
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--green-dark);
+    }
+
+    .hero-sub {
+      font-size: 1.0625rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      max-width: 460px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 0.875rem 2rem;
+      border-radius: 2px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-block;
+      border: 1.5px solid var(--green-dark);
+      color: var(--green-dark);
+      padding: 0.875rem 2rem;
+      border-radius: 2px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover { background: var(--green-dark); color: var(--white); }
+
+    /* hero stats */
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.5rem 1.75rem;
+      position: relative;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--green-mid);
+      border-radius: 6px 0 0 6px;
+    }
+
+    .hero-card-num {
+      font-family: var(--serif);
+      font-size: 2.25rem;
+      font-weight: 500;
+      color: var(--green-dark);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .hero-card-label {
+      font-size: 0.8125rem;
+      color: var(--ink-soft);
+      font-weight: 400;
+    }
+
+    /* ─── SECTION SHARED ──────────────────────────────────── */
+    section { scroll-margin-top: 68px; }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 6rem 2rem;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5px;
+      background: var(--green-mid);
+    }
+
+    .section-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.9rem, 3vw, 2.9rem);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-heading em { font-style: italic; color: var(--green-dark); }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      max-width: 560px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ─── SERVICES ────────────────────────────────────────── */
+    #services { background: var(--white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+    }
+
+    .service-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2rem 1.75rem 2rem;
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--green-mid);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover {
+      border-color: var(--green-light);
+      box-shadow: 0 6px 24px rgba(47,87,67,0.09);
+      transform: translateY(-2px);
+    }
+
+    .service-card:hover::after { transform: scaleX(1); }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--green-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .service-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--green-dark);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .service-title {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    /* ─── APPROACH ────────────────────────────────────────── */
+    #approach { background: var(--green-pale); }
+
+    .approach-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .approach-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      margin-top: 2rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green-dark);
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 0.9375rem;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .step-desc {
+      font-size: 0.875rem;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+
+    .approach-quote {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .approach-quote blockquote {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+
+    .approach-quote blockquote::before {
+      content: '\201C';
+      font-size: 4rem;
+      line-height: 0;
+      vertical-align: -0.6rem;
+      color: var(--green-light);
+      margin-right: 0.1em;
+    }
+
+    .quote-attr {
+      font-size: 0.8125rem;
+      color: var(--ink-lighter);
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    #about { background: var(--white); }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+    }
+
+    .about-photo-badge {
+      position: absolute;
+      bottom: -1.25rem;
+      right: -1.25rem;
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 1.25rem 1.5rem;
+      border-radius: 6px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(47,87,67,0.2);
+    }
+
+    .about-photo-badge strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .about-photo-badge span {
+      font-size: 0.75rem;
+      opacity: 0.85;
+    }
+
+    .about-content { padding-top: 0.5rem; }
+
+    .about-body {
+      font-size: 0.9375rem;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      margin-top: 1.5rem;
+    }
+
+    .about-body p + p { margin-top: 1rem; }
+
+    .about-credentials {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .credential {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      color: var(--ink-soft);
+    }
+
+    .credential-dot {
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green-mid);
+      margin-top: 0.45rem;
+    }
+
+    /* ─── TESTIMONIAL STRIP ───────────────────────────────── */
+    #testimonials { background: var(--green-dark); }
+
+    .testimonials-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .testimonials-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--green-light);
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .testimonials-label::before {
+      content: '';
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5px;
+      background: var(--green-light);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .testimonial {
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 1.5rem;
+    }
+
+    .testimonial-text {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,0.88);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--green-light);
+    }
+
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+      margin-top: 0.2rem;
+    }
+
+    /* ─── CONTACT ─────────────────────────────────────────── */
+    #contact { background: var(--green-paler); }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .contact-detail + .contact-detail { margin-top: 1.25rem; }
+
+    .contact-detail-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--green-pale);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--green-dark);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .contact-detail-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-lighter);
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-detail-value {
+      font-size: 0.9375rem;
+      color: var(--ink);
+    }
+
+    .contact-detail-value a {
+      color: var(--green-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-detail-value a:hover { color: var(--green-mid); }
+
+    /* form */
+    .contact-form {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2.5rem;
+    }
+
+    .form-heading {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 1.75rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    input, textarea, select {
+      font-family: var(--sans);
+      font-size: 0.9375rem;
+      color: var(--ink);
+      background: var(--green-paler);
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -webkit-appearance: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--green-mid);
+      box-shadow: 0 0 0 3px rgba(74,124,98,0.12);
+    }
+
+    textarea { resize: vertical; min-height: 130px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--green-dark);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      padding: 0.9375rem;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover { background: var(--green-mid); transform: translateY(-1px); }
+
+    .form-notice {
+      font-size: 0.78rem;
+      color: var(--ink-lighter);
+      margin-top: 1rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* form state messages */
+    .form-msg {
+      display: none;
+      padding: 0.875rem 1rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      margin-top: 1rem;
+      font-weight: 500;
+    }
+
+    .form-msg.success {
+      background: #d1f0dc;
+      color: #1a5c32;
+      border: 1px solid #a8dbb8;
+    }
+
+    .form-msg.error {
+      background: #fde8e8;
+      color: #7a1c1c;
+      border: 1px solid #f5b8b8;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8125rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-inner, .about-inner, .contact-inner, .approach-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .hero-bg-shape { display: none; }
+
+      .services-grid { grid-template-columns: 1fr 1fr; }
+
+      .testimonials-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .about-photo-badge { right: 1rem; }
+
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        padding: 1.5rem 2rem 2rem;
+        gap: 1.25rem;
+      }
+
+      .nav-cta { padding: 0.6rem 1.25rem; }
+    }
+
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .hero-actions { flex-direction: column; }
+      .btn-primary, .btn-secondary { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero">DBS Advisory <span>LLC</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section id="hero">
+  <div class="hero-bg-shape"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <p class="hero-eyebrow">DBS Advisory LLC</p>
+      <h1 class="hero-headline">
+        Strategic counsel for organizations doing <em>work that matters</em>
+      </h1>
+      <p class="hero-sub">
+        Expert operational and strategic advisory for nonprofit organizations and philanthropic institutions—helping leaders clarify direction, strengthen operations, and amplify impact.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start a Conversation</a>
+        <a href="#services" class="btn-secondary">Explore Services</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-card">
+        <div class="hero-card-num">20+</div>
+        <div class="hero-card-label">Years of philanthropy and nonprofit leadership experience</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-num">$9B+</div>
+        <div class="hero-card-label">In philanthropic capital shaped through strategic planning roles</div>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-num">Global</div>
+        <div class="hero-card-label">Experience across international health, social justice, and advocacy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ SERVICES ═══════════════ -->
+<section id="services">
+  <div class="section-inner">
+    <p class="section-label">What I Offer</p>
+    <h2 class="section-heading">Services built around <em>your</em> organization's needs</h2>
+    <p class="section-sub">
+      Every engagement is tailored to the specific context, culture, and goals of your organization. I bring rigorous thinking and a collaborative approach to every project.
+    </p>
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+        </div>
+        <h3 class="service-title">Strategic Planning</h3>
+        <p class="service-desc">
+          Facilitated, evidence-based processes to help your organization set clear priorities, align around shared goals, and build actionable roadmaps for the future—no off-the-shelf frameworks.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3 class="service-title">Operational Advisory</h3>
+        <p class="service-desc">
+          Practical support to strengthen the systems, structures, and processes that power your work—from governance and board effectiveness to team design and resource allocation.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3 class="service-title">Organizational Development</h3>
+        <p class="service-desc">
+          Helping organizations grow and evolve thoughtfully—from leadership transitions and team building to culture, change management, and navigating periods of significant growth or contraction.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="service-title">Philanthropy Advisory</h3>
+        <p class="service-desc">
+          Strategic guidance for foundations and philanthropic funds—including grantmaking strategy, portfolio design, funder collaboration, and evaluating organizational effectiveness.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h3 class="service-title">Interim Leadership</h3>
+        <p class="service-desc">
+          Experienced executive leadership during transitions—providing stability, continuity, and strategic momentum while your organization conducts a permanent leadership search.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        </div>
+        <h3 class="service-title">Strategic Communications</h3>
+        <p class="service-desc">
+          Helping organizations articulate their vision, narrative, and impact with clarity—including stakeholder communications, board reporting, and funder positioning.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ APPROACH ═══════════════ -->
+<section id="approach">
+  <div class="section-inner">
+    <div class="approach-inner">
+      <div>
+        <p class="section-label">How I Work</p>
+        <h2 class="section-heading">A collaborative, <em>practitioner's</em> approach</h2>
+        <p class="section-sub">
+          I work alongside leaders, not above them. Every engagement is shaped by genuine curiosity about your organization's context and a commitment to leaving your team stronger.
+        </p>
+        <div class="approach-steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <div class="step-title">Listen &amp; Understand</div>
+              <p class="step-desc">Deep listening to your organization's history, culture, relationships, and aspirations before any recommendations are made.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <div class="step-title">Diagnose &amp; Frame</div>
+              <p class="step-desc">Identifying the real questions to be answered—often different from the presenting question—and building a shared frame for the work ahead.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <div class="step-title">Co-create Solutions</div>
+              <p class="step-desc">Developing strategies and plans together with your team, so that the thinking and the ownership are both yours.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div>
+              <div class="step-title">Support Implementation</div>
+              <p class="step-desc">Staying engaged through execution, course-correcting as needed, and building your team's capacity for the challenges ahead.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="approach-quote">
+        <blockquote>
+          The most important work happens not in the boardroom, but in building the organizational conditions that allow great missions to flourish.
+        </blockquote>
+        <p class="quote-attr">Diana Benton Schechter &mdash; DBS Advisory LLC</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-inner">
+      <div class="about-photo-wrap">
+        <img src="unnamed.png" alt="Diana Benton Schechter" class="about-photo">
+        <div class="about-photo-badge">
+          <strong>20+</strong>
+          <span>Years in Philanthropy</span>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <p class="section-label">About</p>
+        <h2 class="section-heading">Diana Benton <em>Schechter</em></h2>
+        <div class="about-body">
+          <p>
+            Diana Benton Schechter is a nonprofit executive and independent consultant with more than two decades of experience at the intersection of philanthropy, strategy, and organizational leadership.
+          </p>
+          <p>
+            She spent nearly a decade at <strong>The Atlantic Philanthropies</strong>—the landmark limited-life foundation founded by Charles F. Feeney that distributed more than $9 billion to social causes—where she led strategic planning in the Office of the CEO, helping shape one of the most consequential philanthropic ventures of the modern era.
+          </p>
+          <p>
+            She subsequently served as a senior leader at <strong>The END Fund</strong>, a collaborative philanthropic initiative dedicated to ending neglected tropical diseases affecting 1.6 billion people worldwide. Over seven years she served as Vice President then Senior Vice President of Strategy &amp; Operations, and ultimately as Chief Operating Officer and Interim Chief Executive Officer, guiding the organization through periods of significant growth and strategic evolution.
+          </p>
+          <p>
+            Through DBS Advisory LLC, Diana brings that practitioner's depth to nonprofit leaders and philanthropic institutions navigating complex challenges—from strategy and operations to organizational culture and leadership transitions.
+          </p>
+        </div>
+
+        <div class="about-credentials">
+          <div class="credential">
+            <div class="credential-dot"></div>
+            <span>M.P.A., Public &amp; Nonprofit Management and Policy — New York University</span>
+          </div>
+          <div class="credential">
+            <div class="credential-dot"></div>
+            <span>B.A., History &amp; Writing — Columbia University</span>
+          </div>
+          <div class="credential">
+            <div class="credential-dot"></div>
+            <span>Board Director, One World Surgery (2024–present)</span>
+          </div>
+          <div class="credential">
+            <div class="credential-dot"></div>
+            <span>Former COO &amp; Interim CEO, The END Fund</span>
+          </div>
+          <div class="credential">
+            <div class="credential-dot"></div>
+            <span>Former Strategic Planning Executive, The Atlantic Philanthropies</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ TESTIMONIALS ═══════════════ -->
+<section id="testimonials">
+  <div class="testimonials-inner">
+    <p class="testimonials-label">What Clients &amp; Colleagues Say</p>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <p class="testimonial-text">
+          "Diana has an extraordinary ability to see both the forest and the trees—she understands organizational dynamics at a deep level and helps leaders make hard decisions with clarity and confidence."
+        </p>
+        <p class="testimonial-author">Senior Nonprofit Executive</p>
+        <p class="testimonial-role">Global Health Sector</p>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">
+          "Working with Diana transformed the way our team thinks about strategy. She asked the right questions, challenged our assumptions, and helped us build a plan we're genuinely excited to execute."
+        </p>
+        <p class="testimonial-author">Executive Director</p>
+        <p class="testimonial-role">Community Foundation</p>
+      </div>
+      <div class="testimonial">
+        <p class="testimonial-text">
+          "Diana is a rare consultant who combines deep subject-matter expertise with real empathy for the complexity of mission-driven work. She is an invaluable thought partner."
+        </p>
+        <p class="testimonial-author">Board Chair</p>
+        <p class="testimonial-role">International NGO</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONTACT ═══════════════ -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div>
+        <p class="section-label">Get in Touch</p>
+        <h2 class="section-heading">Let's explore how I can <em>help</em></h2>
+        <p class="section-sub">
+          Whether you're at an inflection point, planning a major strategic initiative, or simply looking for a trusted thought partner, I'd welcome a conversation.
+        </p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <p class="contact-detail-label">Email</p>
+            <p class="contact-detail-value"><a href="mailto:dbentonschechter@gmail.com">dbentonschechter@gmail.com</a></p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div>
+            <p class="contact-detail-label">Location</p>
+            <p class="contact-detail-value">New York, New York</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          </div>
+          <div>
+            <p class="contact-detail-label">Consulting Focus</p>
+            <p class="contact-detail-value">Nonprofits &amp; Philanthropic Institutions</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <p class="form-heading">Send a message</p>
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name *</label>
+              <input type="text" id="firstName" name="firstName" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name *</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" placeholder="jane@organization.org" required />
+          </div>
+          <div class="form-group">
+            <label for="org">Organization</label>
+            <input type="text" id="org" name="org" placeholder="Your organization's name" />
+          </div>
+          <div class="form-group">
+            <label for="topic">Area of Interest</label>
+            <select id="topic" name="topic">
+              <option value="" disabled selected>Select a topic…</option>
+              <option>Strategic Planning</option>
+              <option>Operational Advisory</option>
+              <option>Organizational Development</option>
+              <option>Philanthropy Advisory</option>
+              <option>Interim Leadership</option>
+              <option>Strategic Communications</option>
+              <option>Other / General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" placeholder="Tell me a bit about your organization and what you're working through…" required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+          <div class="form-msg success" id="formSuccess">
+            Thank you for reaching out. Diana will be in touch shortly.
+          </div>
+          <div class="form-msg error" id="formError">
+            Something went wrong. Please email directly at dbentonschechter@gmail.com.
+          </div>
+        </form>
+        <p class="form-notice">Your information is kept private and will only be used to respond to your inquiry.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-logo">DBS Advisory LLC</p>
+    <ul class="footer-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="mailto:dbentonschechter@gmail.com">Email</a></li>
+    </ul>
+    <p>&copy; 2025 DBS Advisory LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+
+  toggle.addEventListener('click', () => {
+    links.classList.toggle('open');
+  });
+
+  // Close mobile nav when a link is clicked
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => links.classList.remove('open'));
+  });
+
+  // Contact form — mailto fallback (no backend required)
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const firstName = this.firstName.value.trim();
+    const lastName  = this.lastName.value.trim();
+    const email     = this.email.value.trim();
+    const org       = this.org.value.trim();
+    const topic     = this.topic.value;
+    const message   = this.message.value.trim();
+
+    // Basic validation
+    if (!firstName || !lastName || !email || !message) {
+      const err = document.getElementById('formError');
+      err.textContent = 'Please fill in all required fields.';
+      err.style.display = 'block';
+      document.getElementById('formSuccess').style.display = 'none';
+      return;
+    }
+
+    // Compose mailto
+    const subject = encodeURIComponent(`DBS Advisory Inquiry${topic ? ' — ' + topic : ''}`);
+    const body = encodeURIComponent(
+      `Name: ${firstName} ${lastName}\n` +
+      `Email: ${email}\n` +
+      (org ? `Organization: ${org}\n` : '') +
+      (topic ? `Topic: ${topic}\n` : '') +
+      `\nMessage:\n${message}`
+    );
+
+    const mailtoLink = `mailto:dbentonschechter@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+
+    // Show success message
+    document.getElementById('formSuccess').style.display = 'block';
+    document.getElementById('formError').style.display   = 'none';
+    this.reset();
+  });
+
+  // Subtle scroll-reveal animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.service-card, .step, .testimonial, .hero-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
